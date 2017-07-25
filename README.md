@@ -3,7 +3,7 @@ new-node-module(1)
 
 A CLI util which acts as a mini-boilerplate generator for new [Node.js](https://nodejs.org/en/) modules. 
 
-Implemented with [shelljs](https://github.com/shelljs/shelljs) instead of bash, just for fun.
+Implemented with [shelljs](https://github.com/shelljs/shelljs) instead of bash just for fun.
 
 ## LICENSE
 
