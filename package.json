@@ -1,0 +1,24 @@
+{
+  "name": "new-node-module",
+  "description": "Mini-boilerplate for new node modules",
+  "version": "1.0.0",
+  "main": "index.js",
+  "bin": {
+    "new-node-module": "./index.js"
+  },
+  "keywords": [
+    "module",
+    "node",
+    "boilerplate"
+  ],
+  "author": "Michele Pangrazzi <xmikex83@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "nanomist": "^1.0.0",
+    "shelljs": "^0.7.8"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
