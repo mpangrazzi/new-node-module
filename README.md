@@ -5,6 +5,20 @@ A CLI util which acts as a mini-boilerplate generator for new [Node.js](https://
 
 Implemented with [shelljs](https://github.com/shelljs/shelljs) instead of bash just for fun.
 
+## Install
+
+With [npm](https://www.npmjs.com):
+
+```bash
+$ npm install -g mpangrazzi/new-node-module
+```
+
+## Usage
+
+```bash
+$ new-node-module test-module
+```
+
 ## LICENSE
 
 Copyright 2017 Michele Pangrazzi <xmikex83@gmail.com>
