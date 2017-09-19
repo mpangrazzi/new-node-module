@@ -14,7 +14,7 @@
   "author": "Michele Pangrazzi <xmikex83@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "nanomist": "^1.0.0",
+    "nanomist": "^1.0.1",
     "shelljs": "^0.7.8"
   },
   "devDependencies": {},

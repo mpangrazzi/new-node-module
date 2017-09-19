@@ -22,7 +22,7 @@ cmds.forEach(cmd => {
 })
 
 mkdir('-p', targetPath)
-exec('npm init --yes')
+exec(`cd ${targetPath} && npm init --yes`)
 cp(`${__dirname}/files/node.gitignore`, `${targetPath}/.gitignore`)
 touch(`${targetPath}/index.js`)
 
