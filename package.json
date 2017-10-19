@@ -1,7 +1,7 @@
 {
   "name": "new-node-module",
   "description": "Mini-boilerplate for new node modules",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "repository": {
     "type": "git",
     "url": "git://github.com/mpangrazzi/new-mode-module.git"
@@ -21,8 +21,5 @@
     "nanomist": "^1.0.1",
     "shelljs": "^0.7.8"
   },
-  "devDependencies": {},
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  }
+  "devDependencies": {}
 }
