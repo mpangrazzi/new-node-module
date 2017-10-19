@@ -2,6 +2,10 @@
   "name": "new-node-module",
   "description": "Mini-boilerplate for new node modules",
   "version": "1.0.0",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/mpangrazzi/new-mode-module.git"
+  },
   "main": "index.js",
   "bin": {
     "new-node-module": "./index.js"
