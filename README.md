@@ -1,7 +1,7 @@
 new-node-module(1)
 ===
 
-A CLI tool which generates a minimal boilerplate for creating new [Node.js](https://nodejs.org/en/) modules. 
+A CLI tool which generates a minimal boilerplate for creating new [Node.js](https://nodejs.org/en/) modules.
 
 It's implemented with [shelljs](https://github.com/shelljs/shelljs) instead of bash. Why? Just for fun.
 
@@ -10,7 +10,7 @@ It's implemented with [shelljs](https://github.com/shelljs/shelljs) instead of b
 With [npm](https://www.npmjs.com):
 
 ```bash
-$ npm install -g mpangrazzi/new-node-module
+$ npm install -g new-node-module
 ```
 
 ## Usage
