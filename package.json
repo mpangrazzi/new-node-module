@@ -18,8 +18,9 @@
   "author": "Michele Pangrazzi <xmikex83@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "nanomist": "^1.0.1",
-    "shelljs": "^0.7.8"
+    "debug": "^4.3.1",
+    "shelljs": "^0.8.4",
+    "yargs": "^16.2.0"
   },
   "devDependencies": {}
 }
