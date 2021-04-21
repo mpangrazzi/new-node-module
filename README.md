@@ -16,7 +16,19 @@ $ npm install -g new-node-module
 ## Usage
 
 ```bash
-$ new-node-module test-module
+# Simple module
+$ new-node-module --name
+
+# Scoped module
+$ new-node-module --scope '@yourscope' --name 'test'
+```
+
+## Debug
+
+To see what's going on under the hood, run:
+
+```bash
+$ DEBUG=new-node-module new-node-module --scope '@yourscope' --name 'test'
 ```
 
 ## LICENSE
