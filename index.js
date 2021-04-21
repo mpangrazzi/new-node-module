@@ -1,45 +1,68 @@
 #!/usr/bin/env node
 
-const shell = require('shelljs/global')
-const flags = require('nanomist')(process.argv.slice(2))
+const { scope, name } = require('yargs').argv
+const debug = require('debug')('new-node-module')
+const path = require('path')
+const { sed, echo, exit, which, mkdir, exec, cp, touch, cat } = require('shelljs')
 
-const folder = flags._[0]
+debug(`Will use "${name}" as module name`)
+debug(`Will scope module name using "${scope}" as scope`)
+
+const moduleName = scope ? `${scope}/${name}` : name
+
 const cmds = ['npm', 'git']
 
-if (!folder) {
-  echo('Folder name is required')
+if (!name) {
+  echo('Module name is required')
   exit(1)
 }
 
 const cwd = process.cwd()
-const targetPath = `${cwd}/${folder}`
+const targetPath = `${cwd}/${name}`
 
 cmds.forEach(cmd => {
   if (!which(cmd)) {
-    echo(`${cmd} seems to be not available, exiting...`)
+    echo(`"${cmd}" seems to be not available, exiting...`)
     exit(2)
   }
 })
 
 mkdir('-p', targetPath)
-exec(`cd ${targetPath} && npm init --yes`)
-cp(`${__dirname}/files/node.gitignore`, `${targetPath}/.gitignore`)
+debug(`Created target folder ${targetPath}`)
+
+exec(`cd ${targetPath} && npm init --yes >> /dev/null`)
+debug('Launched npm init')
+
+cp(`${path.join(__dirname)}/files/node.gitignore`, `${targetPath}/.gitignore`)
+debug('Added .gitignore')
+
 touch(`${targetPath}/index.js`)
+debug('Created empty index.js')
 
-let author = exec('git config user.name', {
+const author = exec('git config user.name', {
   silent: true
-}).stdout
+}).stdout.trim()
 
-let email = exec('git config user.email', {
+const email = exec('git config user.email', {
   silent: true
-}).stdout
+}).stdout.trim()
 
-cat(`${__dirname}/files/README.md`)
-  .sed('<MODULE>', folder)
+debug(`Got author name from git config "${author}"`)
+debug(`Got author email from git config "${email}"`)
+
+sed('-i', /"name":\s+"(.+)"/, `"name": "${moduleName}"`, path.join(targetPath, 'package.json'))
+debug('Update "name" field in package.json')
+
+sed('-i', /"author":\s+"(.+)"/, `"author": "${author}"`, path.join(targetPath, 'package.json'))
+debug('Update "author" field in package.json')
+
+cat(`${path.join(__dirname)}/files/README.md`)
+  .sed('<MODULE>', moduleName)
   .sed('<YEAR>', new Date().getFullYear())
   .sed('<COPYRIGHT HOLDER>', `${author.trim()} <${email.trim()}>`)
   .to(`${targetPath}/README.md`)
 
-exec(`cd ${targetPath} && git init`)
+exec(`cd ${targetPath} && git init >> /dev/null`)
+debug('Init git repo')
 
 exit(0)
