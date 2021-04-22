@@ -17,7 +17,7 @@ $ npm install -g new-node-module
 
 ```bash
 # Simple module
-$ new-node-module --name
+$ new-node-module --name 'test'
 
 # Scoped module
 $ new-node-module --scope '@yourscope' --name 'test'
